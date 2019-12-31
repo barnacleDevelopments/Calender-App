@@ -1,0 +1,131 @@
+.App {
+width: 100%;
+margin-top: 50px;
+}
+
+.current-date {
+  width: 60% ;
+  height: 80px;
+  background-color: #448aff;
+  color: white;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 25px 0px 25px 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.current-date div:nth-of-type(1) {
+  font-size: 35px;
+  margin: 0px 20px 0px 20px;
+}
+
+.current-date div:nth-of-type(2) {
+  font-size: 20px;
+  margin: 0px 20px 0px 20px;
+}
+
+.days-of-the-week {
+  background-color: #559fff;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.days-of-the-week div:nth-of-type(8) {
+  width: 30px;
+}
+
+#current-day-button {
+  margin: 0 auto;
+  height: 30px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(68, 97, 145, 1);
+  color: white;
+  text-decoration: inherit;
+  text-transform: none;
+}
+
+.calender-interface {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 0px;
+  grid-column-gap: 0px;
+  justify-content: center;
+  width: 60%;
+  height: 400px;
+  overflow-y: scroll;
+  margin: 0 auto;
+  background-color: rgb(243, 243, 243);
+  padding:0px;
+}
+
+.calender-row {
+  text-decoration: none;
+  text-transform: none;
+  list-style-type: none;
+  padding: 0px; 
+  margin:0px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  height: 60px;
+}
+
+.calender-node {
+  width: 14.2%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+
+.current-day {
+  border: 2px solid #fdcc83;
+  border-radius: 30px;
+}
+
+.first-day {
+  font-size: 10px;
+}
+
+.selected-node {
+  border-radius: 60px;
+  background-color: rgba(230, 230, 230, 0.7)
+}
+
+.date-text {
+  position: absolute;
+  padding: 5px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  
+}
+
+.date-text:hover {
+  background-color: rgb(218, 218, 218);
+  border-radius: 100%;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+}
+
+.selected-date {
+  background-color:#448aff;
+  border-radius: 50px;
+  color: white;
+}
