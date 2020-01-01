@@ -4,6 +4,7 @@ import DaysOfTheWeekTab from "./conponents/static/DaysOfTheWeekTab"
 import SelectedDateHead from "./conponents/static/SelectedDateHead"
 import CalenderNodesWrap from "./conponents/functional/CalenderNodesWrap"
 import TodaysDateButton from "./conponents/static/TodaysDateButton"
+
 var currentDate = new Date()
 
 function EventDisplay(props) {
@@ -26,22 +27,66 @@ function EventAdderButton() {
   )
 }
 
-function EventForm() {
-  return (
-    <div className="form-wrapper">
-        <form>
+class EventForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      response: " ",
+
+      post: " ",
+
+      responseToPost: " "
+    }
+  }
+
+  componentDidMount() {
+    this.callApi()
+    .then(res => this.setState({response: res.express}))
+    .catch(err => console.log(err))
+  }
+
+  callApi = async () => {
+    const response = await fetch("/api/hello")
+    const body = await response.json()
+    if(response.status !== 200) throw Error(body.message)
+    return body;
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    const response = await fetch("/api/world", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({post: this.state.post})
+    });
+    console.log(response)
+    const body = await response.text();
+    this.setState({responseToPost: body})
+  }
+
+  render() {
+    return (
+     <div className="form-wrapper">
+      <form onSubmit={this.handleSubmit}>
           <div>
-            <lable>Event Name: </lable>
-            <input id="" type="text"></input>
+          <p>Event Name: </p>
+          <input type="text" value={this.state.post} onChange={(e) => {
+            this.setState({post: e.target.value})}
+            }></input>
+          <button type="submit">submit</button>
           </div>
-         
          <div>
-            <lable>Color: </lable>
+            <p>Color: </p>
             <input type="color"></input>
          </div>
         </form>
+        <p>{this.state.response}</p>
+        <p>{this.state.responseToPost}</p>
     </div>
-  )
+      )
+  }
 }
 
 class App extends React.Component {
@@ -49,6 +94,7 @@ class App extends React.Component {
     super(props)
     this.dateNodes = React.createRef()
     this.state = {
+      dates: {
         currentDate: `${this.getWeekDay(currentDate.getDay())} ${this.getMonth(currentDate.getMonth())} ${currentDate.getDate()} ${currentDate.getFullYear()}`,
 
         selectedDate: `${this.getWeekDay(currentDate.getDay() + 1)} ${this.getMonth(currentDate.getMonth() + 1)} ${currentDate.getDate() + 1} ${currentDate.getFullYear() + 1}`,
@@ -58,32 +104,44 @@ class App extends React.Component {
         firstDayDate: "Sun Jan 1 2019",
 
         currentDateLocation: Number,
+      },
         
-        get pastDates() {
-          let daysOfYear = [];
+      get allDates() {
+        let pastDates = [];
+        let futureDates = [];
           for(let pastD = new Date(2019, 0, 1); pastD <= currentDate; pastD.setDate(pastD.getDate() + 1)) {
-             daysOfYear.push({date: new Date(pastD)})
+            pastDates.push({date: new Date(pastD)})
           }
-          return daysOfYear
-        },
-        
-        get futureDates() {
-          let daysOfYear = [];
-          for(let pastD = new Date(2021, 0, 1); pastD >= currentDate; pastD.setDate(pastD.getDate() - 1)) {
-              daysOfYear.push({date: new Date(pastD)})
-          } 
-          return daysOfYear 
-        },
 
-       get allDates() {
-          let future = this.futureDates.reverse(),
-              past   = this.pastDates
-          return past.concat(future)
+          for(let futureD = new Date(2021, 0, 1); futureD >= currentDate; futureD.setDate(futureD.getDate() - 1)) {
+            futureDates.push({date: new Date(futureD)})
+          } 
+          return pastDates.concat(futureDates.reverse())
        },
+
+       calenderDates: {
+         event: {
+           title: " ",
+           date: " ",
+           color: " "
+         }
+       }
+
       }
         this.getSelectedDate     = this.getSelectedDate.bind(this)
         this.scrollToCurrentDate = this.scrollToCurrentDate.bind(this)
     }
+
+  componentDidMount() {
+    // get current date scroll location
+      let calender = document.querySelector(".calender-interface"),
+      currentDay = document.querySelector(".current-day"),
+      currentDayPosition = currentDay.parentNode.offsetTop - 400
+          calender.scrollTo(0, currentDayPosition)
+            this.setState({
+              currentDateLocation: currentDayPosition
+            })
+  }
 
   getMonth(monthNum) {
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -123,26 +181,17 @@ class App extends React.Component {
    }
   }
 
-componentDidMount() {
-  let calender = document.querySelector(".calender-interface"),
-      currentDay = document.querySelector(".current-day"),
-      currentDayPosition = currentDay.parentNode.offsetTop - 400
-          calender.scrollTo(0, currentDayPosition)
-            this.setState({
-              currentDateLocation: currentDayPosition
-            })
-}
-
   scrollToCurrentDate() {
     let calender = document.querySelector(".calender-interface")
-    calender.scrollTo(0, this.state.currentDateLocation)
+    calender.scrollTo(0, this.state.dates.currentDateLocation)
   }
 
   render() {
+    console.log(this.state.dates.selectedDate)
   return (
     <div className="wrapper">
       <div className="current-date">
-        <SelectedDateHead selectedDate={this.state.currentDate}/>
+        <SelectedDateHead selectedDate={this.state.dates.currentDate}/>
         <EventDisplay />
       </div>
       <DaysOfTheWeekTab />
@@ -154,7 +203,7 @@ componentDidMount() {
         return <ul className="calender-row" key={index} onClick={this.animateHead} >
           {row.map((day, index) => {
               let dateString = `${this.getWeekDay(day.date.getDay())} ${this.getMonth(day.date.getMonth())} ${day.date.getDate()} ${day.date.getFullYear()}`
-              return <CalenderNodesWrap key={index} currentIteration={dateString} currentDateData={dateString} todaysDateData={this.state.todaysDate} selectedDateData={this.state.selectedDate}/>
+              return <CalenderNodesWrap key={index} currentIteration={dateString} currentDateData={dateString} todaysDateData={this.state.dates.todaysDate} selectedDateData={this.state.dates.selectedDate}/>
           })}
         </ul>
       })}
