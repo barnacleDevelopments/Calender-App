@@ -12,23 +12,27 @@ function CalenderNodesWrap(props) {
 
   let firstDayMonth = `${weekDay} ${month} ${firstDay} ${year}`
 
+  let component
+
   switch(props.currentIteration) {
     case props.selectedDateData: 
-    return  <SelectedDateNode id={props.selectedDateData} month={month} day={day} /> 
-    break 
+    component =  <SelectedDateNode id={props.selectedDateData} month={month} day={day} /> 
+    break;
 
     case  props.todaysDateData:
-      return  <TodaysDateNode id={props.todaysDateData} month={month} day={day} />
+    component =  <TodaysDateNode id={props.todaysDateData} month={month} day={day} />
     break;
 
     case firstDayMonth:
-      return <FirstDateNode id={props.currentDateData} month={month} day={day} year={year} />
-      break
+    component = <FirstDateNode id={props.currentDateData} month={month} day={day} year={year} />
+      break;
 
     default:
-      return  <StandardDateNode id={props.currentDateData} month={month} day={day} /> 
-    break
+    component = <StandardDateNode id={props.currentDateData} month={month} day={day} /> 
+    break;
   }
+
+  return component
 
 }
     

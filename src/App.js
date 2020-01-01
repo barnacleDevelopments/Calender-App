@@ -6,11 +6,48 @@ import CalenderNodesWrap from "./conponents/functional/CalenderNodesWrap"
 import TodaysDateButton from "./conponents/static/TodaysDateButton"
 var currentDate = new Date()
 
+function EventDisplay(props) {
+  return (
+    <div className="event-display">
+      <h3>{}</h3>
+      <div id="event-details">
 
+      </div>
+    </div>
+  )
+}
+
+function EventAdderButton() {
+  return (
+    <div>
+      <button className="event-button">Add Event</button>
+    </div>
+      
+  )
+}
+
+function EventForm() {
+  return (
+    <div className="form-wrapper">
+        <form>
+          <div>
+            <lable>Event Name: </lable>
+            <input id="" type="text"></input>
+          </div>
+         
+         <div>
+            <lable>Color: </lable>
+            <input type="color"></input>
+         </div>
+        </form>
+    </div>
+  )
+}
 
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.dateNodes = React.createRef()
     this.state = {
         currentDate: `${this.getWeekDay(currentDate.getDay())} ${this.getMonth(currentDate.getMonth())} ${currentDate.getDate()} ${currentDate.getFullYear()}`,
 
@@ -44,7 +81,7 @@ class App extends React.Component {
           return past.concat(future)
        },
       }
-        this.getSelectedDate = this.getSelectedDate.bind(this)
+        this.getSelectedDate     = this.getSelectedDate.bind(this)
         this.scrollToCurrentDate = this.scrollToCurrentDate.bind(this)
     }
 
@@ -86,7 +123,6 @@ class App extends React.Component {
    }
   }
 
-
 componentDidMount() {
   let calender = document.querySelector(".calender-interface"),
       currentDay = document.querySelector(".current-day"),
@@ -104,21 +140,28 @@ componentDidMount() {
 
   render() {
   return (
-    <div>
-      <SelectedDateHead selectedDate={this.state.currentDate}/>
+    <div className="wrapper">
+      <div className="current-date">
+        <SelectedDateHead selectedDate={this.state.currentDate}/>
+        <EventDisplay />
+      </div>
       <DaysOfTheWeekTab />
       <div onClick={this.scrollToCurrentDate}>
-          <TodaysDateButton />
+        <TodaysDateButton />
       </div>
-    <div className="calender-interface" onClick={this.getSelectedDate}>
+    <div className="calender-interface" onClick={this.getSelectedDate} ref={this.dateNodes}>
       {this.rowsOfDates(7).map((row, index) => {
-        return <ul className="calender-row" key={index} >
+        return <ul className="calender-row" key={index} onClick={this.animateHead} >
           {row.map((day, index) => {
               let dateString = `${this.getWeekDay(day.date.getDay())} ${this.getMonth(day.date.getMonth())} ${day.date.getDate()} ${day.date.getFullYear()}`
               return <CalenderNodesWrap key={index} currentIteration={dateString} currentDateData={dateString} todaysDateData={this.state.todaysDate} selectedDateData={this.state.selectedDate}/>
           })}
         </ul>
       })}
+    </div>
+    <div className="event-adder-wrapper">
+        <EventAdderButton />
+        <EventForm />
     </div>
   </div>
   );
