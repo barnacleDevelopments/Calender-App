@@ -10,19 +10,45 @@ margin-top: 50px;
   color: white;
   margin: 0 auto;
   margin-top: 30px;
-  padding: 25px 0px 25px 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  padding: 20px 0px 20px 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .current-date div:nth-of-type(1) {
   font-size: 35px;
-  margin: 0px 20px 0px 20px;
 }
 
 .current-date div:nth-of-type(2) {
   font-size: 20px;
-  margin: 0px 20px 0px 20px;
+}
+
+.date-wrapper {
+  margin: 5px 10px 5px 20px;
+  padding: 0
+}
+
+.event-display {
+  margin-right: 20px;
+  border: 2px solid #7eb5fd;
+  border-radius: 5px;
+  background-color: #559fff;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: top;
+  text-align: center;
+}
+
+.event-display h3 {
+  margin: 0px
+}
+
+#event-details {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .days-of-the-week {
@@ -61,7 +87,7 @@ margin-top: 50px;
   grid-column-gap: 0px;
   justify-content: center;
   width: 60%;
-  height: 400px;
+  height: 300px;
   overflow-y: scroll;
   margin: 0 auto;
   background-color: rgb(243, 243, 243);
@@ -129,3 +155,96 @@ margin-top: 50px;
   border-radius: 50px;
   color: white;
 }
+
+.date-add{
+  animation-name: displaydate;
+  animation-duration: .2s;
+}
+
+.date-remove {
+  animation-name: removedate;
+  animation-duration: .5s;
+}
+
+.event-adder-wrapper {
+  background-color:#448aff;
+  width: 60%;
+  margin: 0 auto;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.event-button {
+  width: 50%;
+  border: 0px;
+  background-color:#7eb5fd;
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form-wrapper {
+  border: 2px solid #7eb5fd;
+  background-color: #559fff;
+  display: grid;
+  justify-content: start;
+  color: white;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+.form-wrapper form {
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px
+}
+
+.form-wrapper input {
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.form-wrapper form > div {
+  margin: 10px 10px 10px 10px;
+  display: flex;
+}
+
+.form-wrap {
+  width: 100%;
+  height: 190px;
+  background-color: rgba(68, 97, 145, 1);
+  color: white;
+
+}
+
+.form-wrap form > div {
+  display: flex;
+  margin: 20px 10px 0px 20px;
+}
+
+.form-wrap form > div input {
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 4px 9px 4px 9px;
+}
+
+.form-wrap form button {
+  border-radius: 3px;
+  border: none;
+  padding: 4px 9px 4px 9px;
+}
+
+

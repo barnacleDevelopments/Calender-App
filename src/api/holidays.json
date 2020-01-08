@@ -1,0 +1,563 @@
+{
+    "holidays": [
+        {
+            "name": "New Year's Day",
+            "date": "2019-01-01",
+            "observed": "2019-01-01",
+            "public": true,
+            "country": "CA",
+            "uuid": "1f9bc6e3-b71c-44cb-a62d-6453db68ec50",
+            "weekday": {
+                "date": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                },
+                "observed": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                }
+            }
+        },
+        {
+            "name": "Raoul Wallenberg Day",
+            "date": "2019-01-17",
+            "observed": "2019-01-17",
+            "public": false,
+            "country": "CA",
+            "uuid": "a71ab50f-669c-4e12-b39a-b4b041951114",
+            "weekday": {
+                "date": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                },
+                "observed": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                }
+            }
+        },
+        {
+            "name": "Groundhog Day",
+            "date": "2019-02-02",
+            "observed": "2019-02-02",
+            "public": false,
+            "country": "CA",
+            "uuid": "b2fbe511-cc72-4c48-befc-df6f98a82724",
+            "weekday": {
+                "date": {
+                    "name": "Saturday",
+                    "numeric": "6"
+                },
+                "observed": {
+                    "name": "Saturday",
+                    "numeric": "6"
+                }
+            }
+        },
+        {
+            "name": "Valentine's Day",
+            "date": "2019-02-14",
+            "observed": "2019-02-14",
+            "public": false,
+            "country": "CA",
+            "uuid": "dd339144-c87d-40fa-82c4-b353011c181a",
+            "weekday": {
+                "date": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                },
+                "observed": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                }
+            }
+        },
+        {
+            "name": "National Flag of Canada Day",
+            "date": "2019-02-15",
+            "observed": "2019-02-15",
+            "public": false,
+            "country": "CA",
+            "uuid": "c9e01539-fa00-435c-bd44-bbd58e30da53",
+            "weekday": {
+                "date": {
+                    "name": "Friday",
+                    "numeric": "5"
+                },
+                "observed": {
+                    "name": "Friday",
+                    "numeric": "5"
+                }
+            }
+        },
+        {
+            "name": "Commonwealth Day",
+            "date": "2019-03-11",
+            "observed": "2019-03-11",
+            "public": false,
+            "country": "CA",
+            "uuid": "7454d151-e926-4891-9667-e7d9261a974a",
+            "weekday": {
+                "date": {
+                    "name": "Monday",
+                    "numeric": "1"
+                },
+                "observed": {
+                    "name": "Monday",
+                    "numeric": "1"
+                }
+            }
+        },
+        {
+            "name": "Saint Patrick's Day",
+            "date": "2019-03-17",
+            "observed": "2019-03-17",
+            "public": false,
+            "country": "CA",
+            "uuid": "9b5f630b-dd13-458d-ba97-2f0c948102ef",
+            "weekday": {
+                "date": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                },
+                "observed": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                }
+            }
+        },
+        {
+            "name": "March Equinox",
+            "date": "2019-03-20",
+            "observed": "2019-03-20",
+            "public": false,
+            "country": "CA",
+            "uuid": "042b7ebe-a866-45c8-a37e-cbd3032843f8",
+            "weekday": {
+                "date": {
+                    "name": "Wednesday",
+                    "numeric": "3"
+                },
+                "observed": {
+                    "name": "Wednesday",
+                    "numeric": "3"
+                }
+            }
+        },
+        {
+            "name": "April Fools' Day",
+            "date": "2019-04-01",
+            "observed": "2019-04-01",
+            "public": false,
+            "country": "CA",
+            "uuid": "8851ab26-1e8c-4da0-a68e-5306811e8e8b",
+            "weekday": {
+                "date": {
+                    "name": "Monday",
+                    "numeric": "1"
+                },
+                "observed": {
+                    "name": "Monday",
+                    "numeric": "1"
+                }
+            }
+        },
+        {
+            "name": "Tartan Day",
+            "date": "2019-04-06",
+            "observed": "2019-04-06",
+            "public": false,
+            "country": "CA",
+            "uuid": "5823665c-9c31-429c-85ae-21207367780b",
+            "weekday": {
+                "date": {
+                    "name": "Saturday",
+                    "numeric": "6"
+                },
+                "observed": {
+                    "name": "Saturday",
+                    "numeric": "6"
+                }
+            }
+        },
+        {
+            "name": "Vimy Ridge Day",
+            "date": "2019-04-09",
+            "observed": "2019-04-09",
+            "public": false,
+            "country": "CA",
+            "uuid": "3329d6d3-f243-4121-b036-4113347a18ff",
+            "weekday": {
+                "date": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                },
+                "observed": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                }
+            }
+        },
+        {
+            "name": "Good Friday",
+            "date": "2019-04-19",
+            "observed": "2019-04-19",
+            "public": true,
+            "country": "CA",
+            "uuid": "8636ec66-c5b6-48f0-af66-dd8fd03f7926",
+            "weekday": {
+                "date": {
+                    "name": "Friday",
+                    "numeric": "5"
+                },
+                "observed": {
+                    "name": "Friday",
+                    "numeric": "5"
+                }
+            }
+        },
+        {
+            "name": "Easter",
+            "date": "2019-04-21",
+            "observed": "2019-04-21",
+            "public": false,
+            "country": "CA",
+            "uuid": "7e53f69c-4302-4681-8d31-df13d366489f",
+            "weekday": {
+                "date": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                },
+                "observed": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                }
+            }
+        },
+        {
+            "name": "Earth Day",
+            "date": "2019-04-22",
+            "observed": "2019-04-22",
+            "public": false,
+            "country": "CA",
+            "uuid": "54e55a96-bfa4-4237-ad84-21b636f5dca1",
+            "weekday": {
+                "date": {
+                    "name": "Monday",
+                    "numeric": "1"
+                },
+                "observed": {
+                    "name": "Monday",
+                    "numeric": "1"
+                }
+            }
+        },
+        {
+            "name": "Mother's Day",
+            "date": "2019-05-12",
+            "observed": "2019-05-12",
+            "public": false,
+            "country": "CA",
+            "uuid": "9d732176-11c3-420f-b5cd-e0e8b956140c",
+            "weekday": {
+                "date": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                },
+                "observed": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                }
+            }
+        },
+        {
+            "name": "Victoria Day",
+            "date": "2019-05-20",
+            "observed": "2019-05-20",
+            "public": true,
+            "country": "CA",
+            "uuid": "5e620994-eb69-42e8-82dd-367c47d2dbaa",
+            "weekday": {
+                "date": {
+                    "name": "Monday",
+                    "numeric": "1"
+                },
+                "observed": {
+                    "name": "Monday",
+                    "numeric": "1"
+                }
+            }
+        },
+        {
+            "name": "Father's Day",
+            "date": "2019-06-16",
+            "observed": "2019-06-16",
+            "public": false,
+            "country": "CA",
+            "uuid": "f91f4b0b-2f73-43a9-8d48-5805fc9d9615",
+            "weekday": {
+                "date": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                },
+                "observed": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                }
+            }
+        },
+        {
+            "name": "Loyalist Day",
+            "date": "2019-06-19",
+            "observed": "2019-06-19",
+            "public": false,
+            "country": "CA",
+            "uuid": "8366aed9-c737-4b22-920d-e5f5f379467d",
+            "weekday": {
+                "date": {
+                    "name": "Wednesday",
+                    "numeric": "3"
+                },
+                "observed": {
+                    "name": "Wednesday",
+                    "numeric": "3"
+                }
+            }
+        },
+        {
+            "name": "June Solstice",
+            "date": "2019-06-21",
+            "observed": "2019-06-21",
+            "public": false,
+            "country": "CA",
+            "uuid": "d8395d7e-e72a-44ce-8cb7-1174248b8d55",
+            "weekday": {
+                "date": {
+                    "name": "Friday",
+                    "numeric": "5"
+                },
+                "observed": {
+                    "name": "Friday",
+                    "numeric": "5"
+                }
+            }
+        },
+        {
+            "name": "Canadian Multiculturalism Day",
+            "date": "2019-06-27",
+            "observed": "2019-06-27",
+            "public": false,
+            "country": "CA",
+            "uuid": "3b382dcb-4c83-44a6-8236-f8e32c6cede8",
+            "weekday": {
+                "date": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                },
+                "observed": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                }
+            }
+        },
+        {
+            "name": "Canada Day",
+            "date": "2019-07-01",
+            "observed": "2019-07-01",
+            "public": true,
+            "country": "CA",
+            "uuid": "780dedc5-4d4b-4474-8ac6-9b09c03c398f",
+            "weekday": {
+                "date": {
+                    "name": "Monday",
+                    "numeric": "1"
+                },
+                "observed": {
+                    "name": "Monday",
+                    "numeric": "1"
+                }
+            }
+        },
+        {
+            "name": "National Peacekeepers' Day",
+            "date": "2019-08-09",
+            "observed": "2019-08-09",
+            "public": false,
+            "country": "CA",
+            "uuid": "4401f07a-1465-4dab-9cd9-046e6b971d32",
+            "weekday": {
+                "date": {
+                    "name": "Friday",
+                    "numeric": "5"
+                },
+                "observed": {
+                    "name": "Friday",
+                    "numeric": "5"
+                }
+            }
+        },
+        {
+            "name": "Labor Day",
+            "date": "2019-09-02",
+            "observed": "2019-09-02",
+            "public": true,
+            "country": "CA",
+            "uuid": "4ee5fd06-ee75-43f6-97ce-843de9bafb68",
+            "weekday": {
+                "date": {
+                    "name": "Monday",
+                    "numeric": "1"
+                },
+                "observed": {
+                    "name": "Monday",
+                    "numeric": "1"
+                }
+            }
+        },
+        {
+            "name": "National Grandparents' Day",
+            "date": "2019-09-08",
+            "observed": "2019-09-08",
+            "public": false,
+            "country": "CA",
+            "uuid": "cb58c5b0-1d36-4553-b054-157740dc89ae",
+            "weekday": {
+                "date": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                },
+                "observed": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                }
+            }
+        },
+        {
+            "name": "September Equinox",
+            "date": "2019-09-23",
+            "observed": "2019-09-23",
+            "public": false,
+            "country": "CA",
+            "uuid": "87920c34-3bfa-4879-9eab-3a5fd16b2f29",
+            "weekday": {
+                "date": {
+                    "name": "Monday",
+                    "numeric": "1"
+                },
+                "observed": {
+                    "name": "Monday",
+                    "numeric": "1"
+                }
+            }
+        },
+        {
+            "name": "Halloween",
+            "date": "2019-10-31",
+            "observed": "2019-10-31",
+            "public": false,
+            "country": "CA",
+            "uuid": "37ca0779-cc77-49be-b264-6421dcc2fa91",
+            "weekday": {
+                "date": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                },
+                "observed": {
+                    "name": "Thursday",
+                    "numeric": "4"
+                }
+            }
+        },
+        {
+            "name": "National Day of Remembrance and Action on Violence Against Women",
+            "date": "2019-12-06",
+            "observed": "2019-12-06",
+            "public": false,
+            "country": "CA",
+            "uuid": "97d8186e-6b5d-4f7f-a1b1-d16e0ae2f442",
+            "weekday": {
+                "date": {
+                    "name": "Friday",
+                    "numeric": "5"
+                },
+                "observed": {
+                    "name": "Friday",
+                    "numeric": "5"
+                }
+            }
+        },
+        {
+            "name": "December Solstice",
+            "date": "2019-12-22",
+            "observed": "2019-12-22",
+            "public": false,
+            "country": "CA",
+            "uuid": "e8284472-99d0-4e92-83b5-d7b198c974be",
+            "weekday": {
+                "date": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                },
+                "observed": {
+                    "name": "Sunday",
+                    "numeric": "7"
+                }
+            }
+        },
+        {
+            "name": "Christmas Eve",
+            "date": "2019-12-24",
+            "observed": "2019-12-24",
+            "public": false,
+            "country": "CA",
+            "uuid": "d89aca77-b6b8-43d4-adee-6ec607f23c88",
+            "weekday": {
+                "date": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                },
+                "observed": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                }
+            }
+        },
+        {
+            "name": "Christmas Day",
+            "date": "2019-12-25",
+            "observed": "2019-12-25",
+            "public": true,
+            "country": "CA",
+            "uuid": "647968bc-9bd4-45fe-a255-35f485d8bcb7",
+            "weekday": {
+                "date": {
+                    "name": "Wednesday",
+                    "numeric": "3"
+                },
+                "observed": {
+                    "name": "Wednesday",
+                    "numeric": "3"
+                }
+            }
+        },
+        {
+            "name": "New Year's Eve",
+            "date": "2019-12-31",
+            "observed": "2019-12-31",
+            "public": false,
+            "country": "CA",
+            "uuid": "ef8c59a2-70e3-4f78-9b5e-77e78b5408f0",
+            "weekday": {
+                "date": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                },
+                "observed": {
+                    "name": "Tuesday",
+                    "numeric": "2"
+                }
+            }
+        }
+    ]
+
+}
