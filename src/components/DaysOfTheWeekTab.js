@@ -10,7 +10,6 @@ function DaysOfTheWeekTab(props) {
           <div>Thu</div>
           <div>Fri</div>
           <div>Sat</div>
-          <div></div>
       </div>
     )
   }

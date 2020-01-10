@@ -35,16 +35,37 @@ margin-top: 50px;
   border: 2px solid #7eb5fd;
   border-radius: 5px;
   background-color: #559fff;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
   justify-content: center;
   align-items: top;
   text-align: center;
 }
 
-.event-display h3 {
-  margin: 0px
+.event-display {
+  height: 90px;
+  display: flex;
+  position: relative;
+
 }
+
+.event-title {
+  display: flex;
+
+}
+
+.event-title h1 {
+  font-size: 50%;
+  margin: 10px 10px 10px 10px;
+}
+
+#event-display-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
 
 #event-details {
   display: grid;
@@ -63,9 +84,6 @@ margin-top: 50px;
   margin: 0 auto;
 }
 
-.days-of-the-week div:nth-of-type(8) {
-  width: 30px;
-}
 
 #current-day-button {
   margin: 0 auto;
@@ -101,6 +119,7 @@ margin-top: 50px;
   padding: 0px; 
   margin:0px; 
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -110,10 +129,14 @@ margin-top: 50px;
 .calender-node {
   width: 14.2%;
   height: 60px;
-  display: flex;
   justify-content: center;
   align-content: center;
   position: relative;
+  display: flex;
+}
+
+.calender-color {
+  position: absolute;
 }
 
 .current-day {
@@ -246,5 +269,4 @@ margin-top: 50px;
   border: none;
   padding: 4px 9px 4px 9px;
 }
-
 

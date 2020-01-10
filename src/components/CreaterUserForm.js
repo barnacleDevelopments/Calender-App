@@ -15,8 +15,8 @@ function CreateUserForm(props) {
                 </div>
 
                 <div>
-                    <label><b>TIME: </b></label>
-                    <input type="time" name="event-time"/>
+                    <label><b>DATE: </b></label>
+                    <input type="date" name="event-date"/>
                 </div>
                 <button>ADD</button>
             </form>

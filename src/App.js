@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom"
 import axios from "axios"
 
 //header items 
@@ -28,32 +28,35 @@ import DaysOfTheWeekTab  from "./components/DaysOfTheWeekTab"
 var currentDate = new Date()
 
   function App()  {
+            //date states
       const [currentDateLocation, setCurrentDateLocation] = useState(Number),
-            [day, setCurrentDate]                         = useState(`${getWeekDay(currentDate.getDay())} ${getMonth(currentDate.getMonth())} ${currentDate.getDate()} ${currentDate.getFullYear()}`),
-            [selectedDate, setSelectedDate]               = useState(`${getWeekDay(currentDate.getDay() + 1)} ${getMonth(currentDate.getMonth() + 1)} ${currentDate.getDate() + 1} ${currentDate.getFullYear() + 1}`),
-            [todaysDate]                                  = useState(`${getWeekDay(currentDate.getDay())} ${getMonth(currentDate.getMonth())} ${currentDate.getDate()} ${currentDate.getFullYear()}`),
-            [title, setTitle]                             = useState(``),
-            [color, setColor]                             = useState(``)
+            [day, setCurrentDate]                         = useState(`${currentDate.getDay()} ${currentDate.getMonth()} ${currentDate.getDate()} ${currentDate.getFullYear()}`),
+            [selectedDate, setSelectedDate]               = useState(`${currentDate.getDay() + 1} ${currentDate.getMonth() + 1} ${currentDate.getDate() + 1} ${currentDate.getFullYear() + 1}`),
+            [todaysDate]                                  = useState(`${currentDate.getDay()} ${currentDate.getMonth()} ${currentDate.getDate()} ${currentDate.getFullYear()}`),
+            //calender event states 
+            [title, setEventTitle]                        = useState(``),
+            [color, setEventColor]                        = useState(``),
+            [date, setEventDate]                          = useState(``),
+            [listOfEvents, setEventList]                  = useState([]),
+            [selectedEvent, setSelectedEvent]             = useState()
+
   
     useEffect(()=> {
       getTodaysScrollPosition()
-    })
+      scrollToTodaysDate()
+    }, [currentDateLocation])
 
-//   const getHolidays = async () => {
-//     const data = await fetch("./api/holidays.json")
-// console.log(data)
-//     const holidays = await data.json()
+    useEffect(()=> {
+      getEvents()
+    }, [])
 
-//     setHolidays(holidays)
-//   }
+    
 
   function getTodaysScrollPosition() {
       // get current date scroll location
-    let calender = document.querySelector(".calender-interface"),
-    currentDay = document.querySelector(".current-day")
+    let currentDay = document.querySelector(".current-day")
     if(currentDay !== null) {
         let currentDayPosition = currentDay.parentNode.offsetTop - 400
-        calender.scrollTo(0, currentDayPosition)
           setCurrentDateLocation(currentDayPosition)
     }
 
@@ -79,17 +82,6 @@ var currentDate = new Date()
         return pastDates.concat(futureDates.reverse())
       }
 
-  function getMonth(monthNum) {
-    //get short month versions
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    return months[monthNum]
-  }
-
-  function getWeekDay(dayNum) {
-    //get days of the week
-    let weekDays = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"]
-    return weekDays[dayNum]
-  }
     
   function rowsOfDates(chunk) {
     //make rows of dates
@@ -101,7 +93,7 @@ var currentDate = new Date()
     return rows
  }
 
-  function getSelectedDate(e) {
+  function getSelectedDateInfo(e) {
     //get selected date and change state
     if(e.target.parentNode.className === "calender-row") {
       setSelectedDate(e.target.getAttribute("id"))
@@ -117,58 +109,90 @@ var currentDate = new Date()
     }
   }
 
+    function getEvents() {
+      axios.get("http://localhost:5000/event")
+      .then((res) => {
+        setEventList(res.data)
+        console.log(res.data)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+
+    function getEvent(eventId) {
+      axios.get(`http://localhost:5000/event/:id`)
+      .then((res) => {
+        setSelectedEvent(res.data)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+
     function createEvent(e) {
+      //create new evemt 
       e.preventDefault()
-      setTitle(e.target.elements["event-name"].value)
-      setColor(e.target.elements["event-color"].value)
-    }
-
-    const event = {
-      title: title,
-      color: color
-    }
-
-    axios.post('http://localhost:5000/event/create', event)
-    .then((res) => {
-      console.log(res)
-    }).catch((error) => {
-      console.log(error)
-    })
+      setEventTitle(e.target.elements["event-name"].value)
+      setEventColor(e.target.elements["event-color"].value)
+      setEventDate(e.target.elements["event-date"].value)
+      
+      const event = {
+        title: e.target.elements["event-name"].value,
+        color: e.target.elements["event-color"].value,
+        date: e.target.elements["event-date"].value
+      }
+  
+      axios.post('http://localhost:5000/event/create', event)
+        .then((res) => {
+          console.log(res)
+          getEvents()
+      }).catch((error) => {
+          console.log(error)
+        })
+      }
 
   return (
         <Router>
-          <HeaderWrap>
-            <SelectedDateHead selectedDate={day}/> 
-            <Switch>
-              <Route path="/display" component={EventDisplay} />
-            </Switch>
-          </HeaderWrap>
+          <div className="main-calender">
+            <HeaderWrap>
+              <SelectedDateHead selectedDate={day}/> 
+              <Switch>
+                <Route path="/event" 
+                render={(routeProps) => (<EventDisplay {...routeProps} dateInfo={selectedDate} eventInfo={listOfEvents}/>)}/>
+              </Switch>
+            </HeaderWrap>
 
-        <BodyWrap>
-          <DaysOfTheWeekTab />
-          <div onClick={scrollToTodaysDate}>
-            <TodaysDateButton />
-          </div>
-
-          <div className="calender-interface" onClick={getSelectedDate}>
-            {rowsOfDates(7).map((row, index) => {
-              return <ul className="calender-row" key={index}>
-                {row.map((day, index) => {
-                    let dateString = `${getWeekDay(day.date.getDay())} ${getMonth(day.date.getMonth())} ${day.date.getDate()} ${day.date.getFullYear()}`
-                    return <CalenderNodesWrap key={index} currentIteration={dateString} currentDateData={dateString} todaysDateData={todaysDate} selectedDateData={selectedDate}/>
+          <BodyWrap>
+            <DaysOfTheWeekTab />
+            <div onClick={scrollToTodaysDate}>
+              <TodaysDateButton />
+            </div>
+              <div className="calender-interface" onClick={getSelectedDateInfo}>
+                {rowsOfDates(7).map((row, index) => {
+                  return <ul className="calender-row" key={index}>
+                    {row.map((day, index) => {
+                        let dateString = `${day.date.getDay()} ${day.date.getMonth()} ${day.date.getDate()} ${day.date.getFullYear()}`
+                        return <CalenderNodesWrap key={index} eventInfo={listOfEvents} currentDateIteration={dateString} currentDateData={dateString} todaysDateData={todaysDate} selectedDateData={selectedDate}/>
+                    })}
+                
+                  </ul>
                 })}
-              </ul>
-            })}
-          </div>
-        </BodyWrap>
+              </div>
+          </BodyWrap>
 
-      <div className="event-adder-wrapper">
-          <EventAdderButton />
-            <Switch>
-              <Route path="/event/create"
-               render={(routeProps) => (<CreateUserForm {...routeProps} createEvent={createEvent} />)} />
-            </Switch>
-            
+        <div className="event-adder-wrapper">
+            <EventAdderButton/>
+              <Switch>
+                <Route path="/event/create"
+                render={(routeProps) => (<CreateUserForm {...routeProps} createEvent={createEvent} />)} />
+              </Switch>
+              
+        </div>
+      </div>
+
+      <div className="events-display">
+          <Switch>
+             <Route />
+          </Switch>
       </div>
     </Router>
   );
