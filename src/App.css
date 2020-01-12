@@ -1,28 +1,75 @@
+body {
+  background-color: #448aff;
+}
+
 .App {
 width: 100%;
-margin-top: 50px;
+
 }
 
 .current-date {
-  width: 60% ;
+  width: 100% ;
   height: 80px;
   background-color: #448aff;
   color: white;
   margin: 0 auto;
-  margin-top: 30px;
-  padding: 25px 0px 25px 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  padding: 20px 0px 20px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .current-date div:nth-of-type(1) {
   font-size: 35px;
-  margin: 0px 20px 0px 20px;
 }
 
 .current-date div:nth-of-type(2) {
   font-size: 20px;
-  margin: 0px 20px 0px 20px;
+}
+
+.date-wrapper {
+  margin: 5px 10px 5px 20px;
+  padding: 0
+}
+
+.event-display {
+  margin-right: 20px;
+  justify-content: center;
+  align-items: top;
+  text-align: center;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#event-title {
+  display: grid;
+  justify-content: center;
+}
+
+.event-title h1 {
+  font-size: 30px;
+  margin: 5px 5px 5px 5px;
+}
+
+#event-details p {
+  font-size: 2rem;
+  margin: 0px;
+}
+
+#event-display-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
+
+#event-details {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .days-of-the-week {
@@ -33,18 +80,14 @@ margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
-}
-
-.days-of-the-week div:nth-of-type(8) {
-  width: 30px;
 }
 
 #current-day-button {
   margin: 0 auto;
   height: 30px;
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,8 +103,8 @@ margin-top: 50px;
   grid-row-gap: 0px;
   grid-column-gap: 0px;
   justify-content: center;
-  width: 60%;
-  height: 400px;
+  width: 100%;
+  height: 300px;
   overflow-y: scroll;
   margin: 0 auto;
   background-color: rgb(243, 243, 243);
@@ -75,6 +118,7 @@ margin-top: 50px;
   padding: 0px; 
   margin:0px; 
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -82,12 +126,16 @@ margin-top: 50px;
 }
 
 .calender-node {
-  width: 14.2%;
+  width: 100%;
   height: 60px;
-  display: flex;
   justify-content: center;
   align-content: center;
   position: relative;
+  display: flex;
+}
+
+.calender-color {
+  position: absolute;
 }
 
 .current-day {
@@ -128,4 +176,96 @@ margin-top: 50px;
   background-color:#448aff;
   border-radius: 50px;
   color: white;
+}
+
+.date-add{
+  animation-name: displaydate;
+  animation-duration: .2s;
+}
+
+.date-remove {
+  animation-name: removedate;
+  animation-duration: .5s;
+}
+
+.event-adder-wrapper {
+  background-color:#448aff;
+  width: 100%;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  position: absolute;
+}
+
+.event-button {
+  width: 90px;
+  border: 0px;
+  background-color:#7eb5fd;
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form-wrap {
+  width: 500px;
+  height: 180px;
+  margin: 0 auto;
+  border-radius: 3px;
+  background-color: rgba(68, 97, 145, 1);
+  color: white;
+}
+
+.form-wrap form {
+  text-align: center;
+}
+
+.form-wrap form div:nth-last-child(1) {
+  margin-left: 10px;
+}
+
+.form-wrap form > div {
+  margin: 20px 10px 0px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-wrap form div > div {
+  display: flex;
+  position: relative;
+}
+
+.form-wrap form div div > div {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: red;
+  position: relative;
+}
+
+.form-wrap form div > div input {
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 4px 9px 4px 9px;
+}
+
+.form-wrap form button {
+  border-radius: 3px;
+  border: none;
+  padding: 4px 9px 4px 9px;
+  width: 70px;
+  margin-top: 20px;
+}
+
+.validation-message {
+  position: absolute;
+  top: 16px;
+  left: 13px;
+
 }
