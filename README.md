@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Description:
+This calender app comes complete with full functionality expected from a modern calender. This includes auto scrolling to current date and event adding functionality where users can add, edit or remove events. These events are all stored on a mongodb database.
+
+This project can be run using the standard npm run start. A local or remote server must be connected through mongoose in the sever.js file. 
+
 ## Available Scripts
 
 In the project directory, you can run:
